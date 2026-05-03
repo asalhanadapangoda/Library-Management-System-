@@ -6,15 +6,15 @@ public class Author implements Serializable {
     private String id;
     private String name;
     private String bio;
-    private String authorType; // GUEST or PERMANENT
+    private String booksWritten;
 
     public Author() {}
 
-    public Author(String id, String name, String bio, String authorType) {
+    public Author(String id, String name, String bio, String booksWritten) {
         this.id = id;
         this.name = name;
         this.bio = bio;
-        this.authorType = authorType;
+        this.booksWritten = booksWritten;
     }
 
     public String getId() { return id; }
@@ -26,11 +26,11 @@ public class Author implements Serializable {
     public String getBio() { return bio; }
     public void setBio(String bio) { this.bio = bio; }
 
-    public String getAuthorType() { return authorType; }
-    public void setAuthorType(String authorType) { this.authorType = authorType; }
+    public String getBooksWritten() { return booksWritten; }
+    public void setBooksWritten(String booksWritten) { this.booksWritten = booksWritten; }
 
     @Override
     public String toString() {
-        return id + "|" + name + "|" + bio + "|" + authorType;
+        return id + "|" + name + "|" + bio + "|" + booksWritten;
     }
 }

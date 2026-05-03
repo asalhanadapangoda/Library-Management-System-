@@ -27,7 +27,7 @@ public class AuthorServlet extends HttpServlet {
             request.getRequestDispatcher("/admin/authors.jsp").forward(request, response);
         } else if ("delete".equals(action)) {
             authorService.deleteAuthor(request.getParameter("id"));
-            response.sendRedirect("authors?action=list");
+            response.sendRedirect(request.getContextPath() + "/authors?action=adminList");
         }
     }
 
@@ -36,11 +36,19 @@ public class AuthorServlet extends HttpServlet {
         if ("add".equals(action)) {
             String name = request.getParameter("name");
             String bio = request.getParameter("bio");
-            String type = request.getParameter("type");
+            String books = request.getParameter("books");
             String id = UUID.randomUUID().toString().substring(0, 8);
             
-            authorService.addAuthor(new Author(id, name, bio, type));
-            response.sendRedirect("authors?action=list");
+            authorService.addAuthor(new Author(id, name, bio, books));
+            response.sendRedirect(request.getContextPath() + "/authors?action=adminList");
+        } else if ("update".equals(action)) {
+            String id = request.getParameter("id");
+            String name = request.getParameter("name");
+            String bio = request.getParameter("bio");
+            String books = request.getParameter("books");
+            
+            authorService.updateAuthor(new Author(id, name, bio, books));
+            response.sendRedirect("authors?action=adminList");
         }
     }
 }

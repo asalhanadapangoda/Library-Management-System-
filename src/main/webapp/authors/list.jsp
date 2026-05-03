@@ -1,18 +1,33 @@
 <%@ include file="../header.jsp" %>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-    <h1>Authors</h1>
-</div>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h1>Authors</h1>
+    </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
-    <c:forEach var="author" items="${authors}">
-        <div class="card">
-            <i class="fas fa-user-edit" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3>${author.name}</h3>
-            <span style="font-size: 0.75rem; font-weight: 800; color: var(--secondary);">${author.authorType}</span>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">${author.bio}</p>
-        </div>
-    </c:forEach>
-</div>
+    <div class="card" style="padding: 0;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Author Name</th>
+                    <th style="width: 30%;">Books Written</th>
+                    <th>Biography</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="author" items="${authors}">
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <i class="fas fa-user-edit" style="color: var(--primary);"></i>
+                                <strong>${author.name}</strong>
+                            </div>
+                        </td>
+                        <td style="color: var(--secondary); font-size: 0.9rem;">${author.booksWritten}</td>
+                        <td style="color: var(--text-muted); font-size: 0.9rem;">${author.bio}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
 
-<%@ include file="../footer.jsp" %>
+    <%@ include file="../footer.jsp" %>

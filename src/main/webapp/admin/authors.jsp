@@ -13,8 +13,8 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Type</th>
                 <th>Bio</th>
+                <th>Books Written</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,10 +22,13 @@
             <c:forEach var="author" items="${authors}">
                 <tr>
                     <td><strong>${author.name}</strong></td>
-                    <td>${author.authorType}</td>
                     <td>${author.bio}</td>
+                    <td>${author.booksWritten}</td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/authors?action=delete&id=${author.id}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;"><i class="fas fa-trash"></i></a>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <a href="${pageContext.request.contextPath}/admin/edit_author.jsp?id=${author.id}" class="btn btn-outline" style="padding: 0.25rem 0.5rem;"><i class="fas fa-edit"></i></a>
+                            <a href="${pageContext.request.contextPath}/authors?action=delete&id=${author.id}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;" onclick="return confirm('Delete this author?')"><i class="fas fa-trash"></i></a>
+                        </div>
                     </td>
                 </tr>
             </c:forEach>
@@ -43,15 +46,12 @@
                 <input type="text" name="name" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Type</label>
-                <select name="type" class="form-control">
-                    <option value="PERMANENT">Permanent</option>
-                    <option value="GUEST">Guest</option>
-                </select>
+                <label>Biography</label>
+                <textarea name="bio" class="form-control" placeholder="Short bio about the author..."></textarea>
             </div>
             <div class="form-group">
-                <label>Biography</label>
-                <textarea name="bio" class="form-control"></textarea>
+                <label>Books Written</label>
+                <input type="text" name="books" class="form-control" placeholder="e.g. The Great Gatsby, Tender Is the Night">
             </div>
             <div style="display: flex; gap: 1rem;">
                 <button type="submit" class="btn btn-primary" style="flex: 1;">Save</button>

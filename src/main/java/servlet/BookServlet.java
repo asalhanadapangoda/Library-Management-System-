@@ -66,7 +66,26 @@ public class BookServlet extends HttpServlet {
             bookService.addBook(book);
             response.sendRedirect("books?action=list");
         } else if ("update".equals(action)) {
-            // Similar logic for update
+            String id = request.getParameter("id");
+            String type = request.getParameter("type");
+            String title = request.getParameter("title");
+            String author = request.getParameter("author");
+            String genre = request.getParameter("genre");
+            String isbn = request.getParameter("isbn");
+            int qty = Integer.parseInt(request.getParameter("quantity"));
+
+            Book book;
+            if ("EBOOK".equals(type)) {
+                String size = request.getParameter("fileSize");
+                String format = request.getParameter("format");
+                book = new EBook(id, title, author, genre, isbn, qty, size, format);
+            } else {
+                double weight = Double.parseDouble(request.getParameter("weight"));
+                String shelf = request.getParameter("shelf");
+                book = new PrintedBook(id, title, author, genre, isbn, qty, weight, shelf);
+            }
+            bookService.updateBook(book);
+            response.sendRedirect("books?action=details&id=" + id);
         }
     }
 }

@@ -29,7 +29,7 @@
                             ${t.status}
                         </span>
                     </td>
-                    <td>$${t.fine}</td>
+                    <td>RS ${t.fine}</td>
                     <td>
                         <c:if test="${t.status == 'BORROWED'}">
                             <form action="${pageContext.request.contextPath}/borrow" method="POST">

@@ -88,7 +88,12 @@ public class BorrowServlet extends HttpServlet {
                     break;
                 }
             }
-            response.sendRedirect("borrow?action=history");
+            String from = request.getParameter("from");
+            if ("admin".equals(from)) {
+                response.sendRedirect("borrow?action=list");
+            } else {
+                response.sendRedirect("borrow?action=history");
+            }
         } else if ("adminIssue".equals(action)) {
             String userId = request.getParameter("userId");
             String bookId = request.getParameter("bookId");

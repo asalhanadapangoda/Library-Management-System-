@@ -19,11 +19,20 @@
         
         <c:if test="${not empty sessionScope.user}">
             <c:choose>
-                <c:when test="${book.quantity > 0}">
-                    <a href="${pageContext.request.contextPath}/borrow?action=borrow&bookId=${book.id}" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Borrow Now</a>
+                <c:when test="${sessionScope.user.role == 'ADMIN'}">
+                    <a href="${pageContext.request.contextPath}/books/edit.jsp?id=${book.id}" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        <i class="fas fa-edit"></i> Edit Book Details
+                    </a>
                 </c:when>
                 <c:otherwise>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;" disabled>Out of Stock</button>
+                    <c:choose>
+                        <c:when test="${book.quantity > 0}">
+                            <a href="${pageContext.request.contextPath}/borrow?action=borrow&bookId=${book.id}" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Borrow Now</a>
+                        </c:when>
+                        <c:otherwise>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;" disabled>Out of Stock</button>
+                        </c:otherwise>
+                    </c:choose>
                 </c:otherwise>
             </c:choose>
         </c:if>
