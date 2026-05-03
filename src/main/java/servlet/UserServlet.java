@@ -47,6 +47,23 @@ public class UserServlet extends HttpServlet {
             model.AdminUser newAdmin = new model.AdminUser(id, u, p, e, level);
             userService.registerUser(newAdmin);
             response.sendRedirect("users?action=adminList");
+        } else if ("updateAdmin".equals(action)) {
+            String id = request.getParameter("id");
+            String e = request.getParameter("email");
+            String p = request.getParameter("password");
+            String level = request.getParameter("level");
+            
+            model.User existing = userService.findById(id);
+            if (existing instanceof model.AdminUser) {
+                model.AdminUser admin = (model.AdminUser) existing;
+                admin.setEmail(e);
+                admin.setAdminLevel(level);
+                if (p != null && !p.trim().isEmpty()) {
+                    admin.setPassword(p);
+                }
+                userService.updateUser(admin);
+            }
+            response.sendRedirect("users?action=adminList");
         }
     }
 }

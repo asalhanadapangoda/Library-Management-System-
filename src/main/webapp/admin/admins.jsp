@@ -24,9 +24,10 @@
                     <td>${admin.id}</td>
                     <td><strong>${admin.username}</strong></td>
                     <td>${admin.email}</td>
-                    <td>
+                    <td style="display: flex; gap: 0.5rem;">
+                        <a href="${pageContext.request.contextPath}/admin/edit_admin.jsp?id=${admin.id}" class="btn btn-outline" style="padding: 0.25rem 0.5rem;"><i class="fas fa-edit"></i></a>
                         <c:if test="${admin.id != sessionScope.user.id}">
-                            <a href="${pageContext.request.contextPath}/admin/users?action=delete&id=${admin.id}&from=users?action=adminList" class="btn btn-danger" style="padding: 0.25rem 0.5rem;"><i class="fas fa-user-minus"></i></a>
+                            <a href="${pageContext.request.contextPath}/admin/users?action=delete&id=${admin.id}&from=users?action=adminList" class="btn btn-danger" style="padding: 0.25rem 0.5rem;" onclick="return confirm('Remove this admin account?')"><i class="fas fa-user-minus"></i></a>
                         </c:if>
                     </td>
                 </tr>

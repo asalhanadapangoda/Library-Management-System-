@@ -45,6 +45,34 @@ public class AuthServlet extends HttpServlet {
             RegularUser newUser = new RegularUser(id, u, p, e, m);
             userService.registerUser(newUser);
             response.sendRedirect("auth/login.jsp");
+        } else if ("update".equals(action)) {
+            User current = (User) request.getSession().getAttribute("user");
+            if (current != null) {
+                String e = request.getParameter("email");
+                String p = request.getParameter("password");
+                
+                // Only update password if a new one is provided
+                if (p != null && !p.trim().isEmpty()) {
+                    current.setPassword(p);
+                }
+                current.setEmail(e);
+                
+                if (current instanceof model.RegularUser) {
+                    ((model.RegularUser)current).setMembershipType(request.getParameter("membership"));
+                }
+                
+                userService.updateUser(current);
+                // Update session
+                request.getSession().setAttribute("user", current);
+                
+                if ("ADMIN".equals(current.getRole())) {
+                    response.sendRedirect("admin/dashboard.jsp");
+                } else {
+                    response.sendRedirect("user/dashboard.jsp");
+                }
+            } else {
+                response.sendRedirect("auth/login.jsp");
+            }
         }
     }
 
