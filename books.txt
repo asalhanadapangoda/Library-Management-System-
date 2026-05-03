@@ -1,0 +1,3 @@
+EBOOK|B001|Java Programming|John Smith|Tech|12345|10|5MB|PDF
+PRINTED|B002|The Great Gatsby|F. Scott Fitzgerald|Classic|67890|5|0.5|Shelf-A1
+PRINTED|B003|Clean Code|Robert C. Martin|Tech|11223|3|0.8|Shelf-B2
