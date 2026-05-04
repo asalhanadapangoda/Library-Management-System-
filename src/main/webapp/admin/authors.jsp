@@ -26,8 +26,8 @@
                     <td>${author.booksWritten}</td>
                     <td>
                         <div style="display: flex; gap: 0.5rem;">
-                            <a href="${pageContext.request.contextPath}/admin/edit_author.jsp?id=${author.id}" class="btn btn-outline" style="padding: 0.25rem 0.5rem;"><i class="fas fa-edit"></i></a>
-                            <a href="${pageContext.request.contextPath}/authors?action=delete&id=${author.id}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;" onclick="return confirm('Delete this author?')"><i class="fas fa-trash"></i></a>
+                            <a href="${pageContext.request.contextPath}/admin/edit_author.jsp?id=${author.id}" class="btn btn-outline" style="padding: 0.25rem 0.5rem;"><i class="bi bi-pencil"></i></a>
+                            <a href="${pageContext.request.contextPath}/authors?action=delete&id=${author.id}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;" onclick="return confirm('Delete this author?')"><i class="bi bi-trash"></i></a>
                         </div>
                     </td>
                 </tr>

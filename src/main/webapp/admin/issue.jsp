@@ -7,7 +7,7 @@
 %>
 
 <div class="card" style="max-width: 600px; margin: 0 auto;">
-    <h2 style="margin-bottom: 0.5rem;"><i class="fas fa-hand-holding-heart" style="color: #f472b6;"></i> Issue Book to Member</h2>
+    <h2 style="margin-bottom: 0.5rem;"><i class="bi bi-hand-thumbs-up" style="color: #f472b6;"></i> Issue Book to Member</h2>
     <p style="color: var(--text-muted); margin-bottom: 2rem;">Manually assign an available book to a registered library member.</p>
 
     <c:if test="${param.error == 'invalid_issue'}">

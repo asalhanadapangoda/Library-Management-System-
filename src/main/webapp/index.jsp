@@ -9,7 +9,7 @@
     </p>
     <div style="display: flex; gap: 1rem; justify-content: center;">
         <a href="books?action=list" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-            Explore Collection <i class="fas fa-arrow-right"></i>
+            Explore Collection <i class="bi bi-arrow-right"></i>
         </a>
         <a href="auth/login.jsp" class="btn btn-outline" style="font-size: 1.1rem; padding: 1rem 2rem;">
             Member Login
@@ -19,17 +19,17 @@
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
     <div class="card">
-        <i class="fas fa-users" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+        <i class="bi bi-people" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
         <h3>User Centric</h3>
         <p>Simple registration and profile management. Track your borrowing history with ease.</p>
     </div>
     <div class="card">
-        <i class="fas fa-book" style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
+        <i class="bi bi-book" style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
         <h3>Diverse Catalog</h3>
         <p>From E-books to Printed copies, find everything in our extensive library catalog.</p>
     </div>
     <div class="card">
-        <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--success); margin-bottom: 1rem;"></i>
+        <i class="bi bi-shield-check" style="font-size: 2rem; color: var(--success); margin-bottom: 1rem;"></i>
         <h3>Admin Power</h3>
         <p>Robust administrative tools for managing users, books, and moderating reviews.</p>
     </div>

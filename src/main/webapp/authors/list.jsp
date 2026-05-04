@@ -18,7 +18,7 @@
                     <tr>
                         <td>
                             <div style="display: flex; align-items: center; gap: 1rem;">
-                                <i class="fas fa-user-edit" style="color: var(--primary);"></i>
+                                <i class="bi bi-person-vcard" style="color: var(--primary);"></i>
                                 <strong>${author.name}</strong>
                             </div>
                         </td>

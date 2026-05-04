@@ -5,7 +5,7 @@
 
 <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem;">
     <div class="card" style="text-align: center;">
-        <i class="fas fa-book" style="font-size: 5rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+        <i class="bi bi-book" style="font-size: 5rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
         <h2>${book.title}</h2>
         <p style="color: var(--text-muted);">by ${book.author}</p>
         <hr style="margin: 1.5rem 0; opacity: 0.1;">
@@ -21,7 +21,7 @@
             <c:choose>
                 <c:when test="${sessionScope.user.role == 'ADMIN'}">
                     <a href="${pageContext.request.contextPath}/books/edit.jsp?id=${book.id}" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
-                        <i class="fas fa-edit"></i> Edit Book Details
+                        <i class="bi bi-pencil"></i> Edit Book Details
                     </a>
                 </c:when>
                 <c:otherwise>
@@ -55,7 +55,7 @@
                             <div style="display: flex; justify-content: space-between; align-items: center;">
                                 <strong><%= r.getUserName() %></strong>
                                 <span style="color: var(--accent);">
-                                    <% for(int i=0; i<r.getRating(); i++) { %><i class="fas fa-star"></i><% } %>
+                                    <% for(int i=0; i<r.getRating(); i++) { %><i class="bi bi-star-fill"></i><% } %>
                                 </span>
                             </div>
                             <p style="margin-top: 0.5rem; font-size: 0.9rem;"><%= r.getComment() %></p>

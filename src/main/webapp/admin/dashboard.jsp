@@ -3,46 +3,63 @@
     <% response.sendRedirect("../auth/login.jsp"); %>
 </c:if>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-    <h1>Admin Control Center</h1>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+
+<div class="admin-header">
+    <h1 class="h2">Admin Control Center</h1>
+    <p class="text-muted">Welcome back, ${sessionScope.user.username}. Manage your library operations below.</p>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-    <a href="${pageContext.request.contextPath}/admin/users?action=list" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-user-shield" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
-        <h3>User Management</h3>
-        <p>Manage member accounts and permissions</p>
-    </a>
-    <a href="${pageContext.request.contextPath}/books?action=list" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-book-medical" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
-        <h3>Book Inventory</h3>
-        <p>Add, edit, or remove books from catalog</p>
-    </a>
-    <a href="${pageContext.request.contextPath}/borrow?action=list" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-exchange-alt" style="font-size: 2.5rem; color: var(--success); margin-bottom: 1rem;"></i>
-        <h3>Borrowing Logs</h3>
-        <p>Track transactions and manage returns</p>
-    </a>
-    <a href="${pageContext.request.contextPath}/authors?action=adminList" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-pen-nib" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-        <h3>Authors</h3>
-        <p>Manage author profiles and bios</p>
-    </a>
-    <a href="${pageContext.request.contextPath}/reviews?action=moderate" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-star" style="font-size: 2.5rem; color: #facc15; margin-bottom: 1rem;"></i>
-        <h3>Moderation</h3>
-        <p>Review and moderate user feedback</p>
-    </a>
-    <a href="${pageContext.request.contextPath}/admin/issue.jsp" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-hand-holding-heart" style="font-size: 2.5rem; color: #f472b6; margin-bottom: 1rem;"></i>
-        <h3>Issue Book</h3>
-        <p>Give books to members manually</p>
-    </a>
-    <a href="${pageContext.request.contextPath}/admin/users?action=adminList" class="card" style="text-decoration: none; color: inherit; text-align: center;">
-        <i class="fas fa-user-cog" style="font-size: 2.5rem; color: var(--danger); margin-bottom: 1rem;"></i>
-        <h3>Admin Team</h3>
-        <p>Manage administrative access</p>
-    </a>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/admin/users?action=list" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-shield-lock admin-card-icon text-primary"></i>
+            <h3 class="h5">User Management</h3>
+            <p class="text-muted small">Manage member accounts and permissions</p>
+        </a>
+    </div>
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/books?action=list&view=admin" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-journal-plus admin-card-icon text-warning"></i>
+            <h3 class="h5">Book Inventory</h3>
+            <p class="text-muted small">Add, edit, or remove books from catalog</p>
+        </a>
+    </div>
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/borrow?action=list" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-arrow-left-right admin-card-icon text-success"></i>
+            <h3 class="h5">Borrowing Logs</h3>
+            <p class="text-muted small">Track transactions and manage returns</p>
+        </a>
+    </div>
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/authors?action=adminList" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-pencil-square admin-card-icon text-secondary"></i>
+            <h3 class="h5">Authors</h3>
+            <p class="text-muted small">Manage author profiles and bios</p>
+        </a>
+    </div>
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/reviews?action=moderate" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-star admin-card-icon" style="color: #facc15;"></i>
+            <h3 class="h5">Moderation</h3>
+            <p class="text-muted small">Review and moderate user feedback</p>
+        </a>
+    </div>
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/admin/issue.jsp" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-hand-thumbs-up admin-card-icon" style="color: #f472b6;"></i>
+            <h3 class="h5">Issue Book</h3>
+            <p class="text-muted small">Give books to members manually</p>
+        </a>
+    </div>
+    <div class="col">
+        <a href="${pageContext.request.contextPath}/admin/users?action=adminList" class="card h-100 text-decoration-none text-center p-4">
+            <i class="bi bi-person-gear admin-card-icon text-danger"></i>
+            <h3 class="h5">Admin Team</h3>
+            <p class="text-muted small">Manage administrative access</p>
+        </a>
+    </div>
 </div>
 
 <%@ include file="../footer.jsp" %>

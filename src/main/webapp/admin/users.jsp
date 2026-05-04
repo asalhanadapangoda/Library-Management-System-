@@ -33,7 +33,7 @@
                         </c:choose>
                     </td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/admin/users?action=delete&id=${u.id}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;"><i class="fas fa-trash"></i></a>
+                        <a href="${pageContext.request.contextPath}/admin/users?action=delete&id=${u.id}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;"><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>
             </c:forEach>

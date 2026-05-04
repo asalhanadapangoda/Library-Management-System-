@@ -1,0 +1,21 @@
+/* User Dashboard & Profile Styles */
+.user-welcome {
+    background: linear-gradient(135deg, var(--primary), #818cf8);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.history-item {
+    transition: background 0.2s;
+}
+
+.history-item:hover {
+    background: #f1f5f9;
+}
+
+.fine-amount {
+    font-weight: 800;
+    color: var(--danger);
+}

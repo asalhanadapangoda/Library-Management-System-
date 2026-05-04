@@ -2,8 +2,8 @@
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
     <h1>Library Catalog</h1>
-    <c:if test="${sessionScope.user.role == 'ADMIN'}">
-        <a href="books/add.jsp" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Book</a>
+    <c:if test="${sessionScope.user.role == 'ADMIN' && param.view == 'admin'}">
+        <a href="books/add.jsp" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add New Book</a>
     </c:if>
 </div>
 
@@ -47,8 +47,8 @@
                     <td>
                         <div style="display: flex; gap: 0.5rem;">
                             <a href="${pageContext.request.contextPath}/books?action=details&id=${book.getId()}" class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;">Details</a>
-                            <c:if test="${sessionScope.user.role == 'ADMIN'}">
-                                <a href="${pageContext.request.contextPath}/books?action=delete&id=${book.getId()}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></a>
+                            <c:if test="${sessionScope.user.role == 'ADMIN' && param.view == 'admin'}">
+                                <a href="${pageContext.request.contextPath}/books?action=delete&id=${book.getId()}" class="btn btn-danger" style="padding: 0.25rem 0.5rem;" onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></a>
                             </c:if>
                         </div>
                     </td>
